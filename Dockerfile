@@ -1,4 +1,4 @@
-FROM python:3.12.1-slim as python-base
+FROM python:3.12.1-slim AS python-base
 
 # Environment variables
 ENV PYTHONUNBUFFERED=1 \
