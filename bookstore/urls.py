@@ -19,8 +19,11 @@ import debug_toolbar
 from django.contrib import admin
 from django.urls import path, re_path, include
 from rest_framework.authtoken.views import obtain_auth_token
+from .welcome import home, api_version_home
 
 urlpatterns = [
+    path("", home, name="home"),
+    path("bookstore/<str:version>/", api_version_home, name="api_version_home"),
     path("__debug__/", include(debug_toolbar.urls)),
     path("admin/", admin.site.urls),
     re_path("bookstore/(?P<version>(v1|v2))/", include("order.urls")),
